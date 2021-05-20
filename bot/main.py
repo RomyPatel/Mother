@@ -29,8 +29,11 @@ async def on_message(message):
     msg= message.content    
 
     if message.content.startswith('$Hello'):
-        quote= get_quote()
         await message.channel.send("Hello!")
+
+    if message.content.startswith('$Inspire'):
+        quote= get_quote()
+        await message.channel.send(quote)
 
     if any (word in msg for word in sad_words):
         await message.channel.send(random.choice(basic_encouragements))
